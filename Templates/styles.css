@@ -1,0 +1,390 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+    --primary: #2657c8;
+    --primary-dark: #183d9b;
+    --primary-light: #e8efff;
+    --text: #162033;
+    --muted-text: #667085;
+    --border: #dce3ef;
+    --card: rgba(255, 255, 255, 0.9);
+    --shadow: 0 20px 45px rgba(27, 57, 120, 0.14);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+
+    display: grid;
+    place-items: start center;
+
+    padding: 72px 20px;
+
+    /* Allows the complete page to scroll */
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background:
+        radial-gradient(circle at 10% 10%, #dce8ff 0, transparent 32%),
+        radial-gradient(circle at 90% 90%, #d8f5f0 0, transparent 30%),
+        #f5f8ff;
+
+    color: var(--text);
+    font-family: "Inter", Arial, sans-serif;
+}
+
+.helpdesk {
+    width: min(100%, 720px);
+    padding: 42px;
+
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 22px;
+
+    background: var(--card);
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: blur(12px);
+
+    animation: slideUp 0.7s ease-out;
+}
+
+.helpdesk::before {
+    content: "";
+
+    width: 220px;
+    height: 220px;
+
+    position: absolute;
+    top: -120px;
+    right: -90px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #7da7ff, #c5d7ff);
+
+    opacity: 0.35;
+}
+
+header,
+.helpdesk-nav,
+.welcome-message,
+.chat-container,
+.search-form {
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+
+    color: #173d90;
+
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    margin: 10px 0 28px;
+
+    color: var(--muted-text);
+
+    font-size: 1rem;
+}
+
+.helpdesk-nav {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+button {
+    padding: 10px 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    background: white;
+
+    color: var(--primary);
+
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.helpdesk-nav button:hover {
+    transform: translateY(-2px);
+
+    border-color: #9cb7f2;
+
+    background: var(--primary-light);
+
+    box-shadow: 0 7px 15px rgba(38, 87, 200, 0.12);
+}
+
+.welcome-message {
+    margin: 0 0 22px;
+
+    padding: 16px;
+
+    border-left: 4px solid var(--primary);
+
+    border-radius: 0 10px 10px 0;
+
+    background: #f4f7ff;
+
+    color: #4b5870;
+
+    line-height: 1.65;
+}
+
+
+/* ============================= */
+/* CHAT CONTAINER */
+/* ============================= */
+
+.chat-container {
+    height: 420px;
+
+    /* Vertical scrolling */
+    overflow-y: auto;
+
+    /* Prevent horizontal scrolling */
+    overflow-x: hidden;
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #e2e2e2;
+
+    border-radius: 15px;
+
+    background: #fafafa;
+
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+}
+
+
+/* Scrollbar styling */
+
+.chat-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background: #b5c4e8;
+    border-radius: 10px;
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+    background: #8fa6dc;
+}
+
+
+/* ============================= */
+/* CHAT MESSAGES */
+/* ============================= */
+
+.message {
+    max-width: 80%;
+
+    padding: 14px 16px;
+
+    margin: 12px 0;
+
+    border-radius: 14px;
+
+    line-height: 1.6;
+
+    word-wrap: break-word;
+}
+
+.user-message {
+    margin-left: auto;
+
+    background: #e5efff;
+
+    text-align: right;
+}
+
+.ai-message {
+    margin-right: auto;
+
+    background: #eeeeee;
+
+    text-align: left;
+}
+
+.message-title {
+    margin-bottom: 7px;
+
+    font-weight: 700;
+}
+
+.message-text {
+    font-size: 15px;
+}
+
+
+/* ============================= */
+/* LOADING */
+/* ============================= */
+
+.loading {
+    padding: 10px;
+
+    text-align: center;
+
+    color: #667085;
+
+    font-style: italic;
+}
+
+
+/* ============================= */
+/* SEARCH FORM */
+/* ============================= */
+
+.search-form {
+    display: flex;
+
+    gap: 12px;
+}
+
+input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 13px 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: #fff;
+
+    color: var(--text);
+
+    font: inherit;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input::placeholder {
+    color: #98a2b3;
+}
+
+input:focus {
+    border-color: var(--primary);
+
+    box-shadow: 0 0 0 4px rgba(38, 87, 200, 0.15);
+}
+
+.search-form button {
+    border-color: var(--primary);
+
+    background: linear-gradient(135deg, #326ae2, #1d49ae);
+
+    color: white;
+
+    box-shadow: 0 8px 16px rgba(38, 87, 200, 0.25);
+}
+
+.search-form button:hover {
+    transform: translateY(-2px);
+
+    background: linear-gradient(135deg, #2459c9, #163a90);
+
+    box-shadow: 0 12px 20px rgba(38, 87, 200, 0.3);
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(38, 87, 200, 0.3);
+
+    outline-offset: 3px;
+}
+
+
+/* ============================= */
+/* ANIMATION */
+/* ============================= */
+
+@keyframes slideUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 32px 16px;
+    }
+
+    .helpdesk {
+        padding: 28px 22px;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-form button {
+        width: 100%;
+    }
+
+    .chat-container {
+        height: 350px;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+}

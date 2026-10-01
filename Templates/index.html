@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GenAI Academic Helpdesk</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+    <main class="helpdesk">
+
+        <!-- Header -->
+        <header class="header">
+            <h1>🧠 GenAI Academic Helpdesk</h1>
+            <p class="subtitle">
+                Your intelligent campus assistant
+            </p>
+        </header>
+
+
+        <!-- Navigation Buttons -->
+        <nav class="helpdesk-nav">
+
+            <button type="button"
+                onclick="setQuestion('Tell me about the library')">
+                📚 Library
+            </button>
+
+            <button type="button"
+                onclick="setQuestion('Tell me about placement opportunities')">
+                💼 Placement
+            </button>
+
+            <button type="button"
+                onclick="setQuestion('Tell me about hostel rules')">
+                🏠 Hostel
+            </button>
+
+            <button type="button"
+                onclick="setQuestion('Tell me about examinations')">
+                📝 Exams
+            </button>
+
+        </nav>
+
+
+        <!-- Welcome Message -->
+        <div class="welcome-message">
+
+            💬 Hello! I am your GenAI Academic Assistant.
+            <br><br>
+
+            Ask me anything about:
+
+            <b>
+                syllabus, library, placements, hostel,
+                exams and academics.
+            </b>
+
+        </div>
+
+
+        <!-- Chat Messages -->
+        <div id="chatContainer" class="chat-container">
+        </div>
+
+
+        <!-- Loading Message -->
+        <div id="loading"
+             class="loading"
+             style="display: none;">
+
+            🤖 GenAI is thinking...
+
+        </div>
+
+
+        <!-- Question Form -->
+        <form id="searchForm" class="search-form">
+
+            <input
+                type="text"
+                id="questionInput"
+                placeholder="Ask your academic question..."
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit">
+                Send
+            </button>
+
+        </form>
+
+
+        <!-- Footer -->
+        <p class="footer-text">
+            Powered by GenAI Academic Assistant
+        </p>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
